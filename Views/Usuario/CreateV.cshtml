@@ -7,7 +7,7 @@
 
 <div class="signup-form">
     
-    <form asp-action="Create" asp-controller="Usuario" method="post">
+    <form asp-action="CreateV" asp-controller="Usuario" method="post">
         <h2>Resgistrate</h2>
         <p class="hint-text">Create your account. It's free and only takes a minute.</p>
 
@@ -33,18 +33,18 @@
         <div class="text-center ">¿Ya tienes cuenta? <a class="text-danger" asp-controller="Login" asp-action="Index"> Inicia sesión</a></div>
     </form>
     <script>
-    var password = document.getElementById("password")
-        , confirm_password = document.getElementById("confirm_password");
+        var password = document.getElementById("password")
+            , confirm_password = document.getElementById("confirm_password");
 
-    function validatePassword() {
-        if (password.value != confirm_password.value) {
-            confirm_password.setCustomValidity("Las contraseñas no coinciden");
-        } else {
-            confirm_password.setCustomValidity('');
+        function validatePassword() {
+            if (password.value != confirm_password.value) {
+                confirm_password.setCustomValidity("Las contraseñas no coinciden");
+            } else {
+                confirm_password.setCustomValidity('');
+            }
         }
-    }
-    password.onchange = validatePassword;
-    confirm_password.onkeyup = validatePassword;
+        password.onchange = validatePassword;
+        confirm_password.onkeyup = validatePassword;
     </script>
 
 </div>
