@@ -6,35 +6,46 @@
 }
 
 <div class="signup-form">
-    @using (Html.BeginForm())
-    {
-        <form asp-action="Create" method="post">
-            <h2>Resgistrate</h2>
-            <p class="hint-text">Create your account. It's free and only takes a minute.</p>
+    
+    <form asp-action="Create" asp-controller="Usuario" method="post">
+        <h2>Resgistrate</h2>
+        <p class="hint-text">Create your account. It's free and only takes a minute.</p>
 
-            <div class="form-group">
-                <input asp-for="Email" class="form-control" type="email" name="Email" placeholder="Email" required="required" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input asp-for="Password" class="form-control" type="password" name="password" placeholder="Password" required="required" />
-                <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input asp-for="Password" type="password" class="form-control" name="confirm_password" placeholder="Confirma Password" required="required">
-                <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
+        <div class="form-group">
+            <input asp-for="Email" class="form-control" type="email" name="Email" placeholder="Email" required="required" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input asp-for="Password" class="form-control" type="password" name="password" placeholder="Password" id="password" required />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input asp-for="Password" type="password" class="form-control" name="confirm_password" placeholder="Confirma Password" id="confirm_password" required>
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
 
-            <div class="form-group">
-                <label class="form-check-label"><input type="checkbox" required="required"> I accept the <a class="text-danger" href="#">Terms of Use</a> &amp; <a class="text-danger" href="#">Privacy Policy</a></label>
-            </div>
-            <div class="form-group">
-                <button type="submit" class="btn btn-danger btn-lg btn-block">Registrarse</button>
-            </div>
-            <div class="text-center ">¿Ya tienes cuenta? <a class="text-danger" asp-controller="Login" asp-action="Index"> Inicia sesión</a></div>
-        </form>
+        <div class="form-group">
+            <label class="form-check-label"><input type="checkbox" required="required"> Acepto los<a class="text-danger" href="#">Términos</a> &amp; <a class="text-danger" href="#">Política de Privacidad</a></label>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-danger btn-lg btn-block">Registrarse</button>
+        </div>
+        <div class="text-center ">¿Ya tienes cuenta? <a class="text-danger" asp-controller="Login" asp-action="Index"> Inicia sesión</a></div>
+    </form>
+    <script>
+    var password = document.getElementById("password")
+        , confirm_password = document.getElementById("confirm_password");
 
+    function validatePassword() {
+        if (password.value != confirm_password.value) {
+            confirm_password.setCustomValidity("Las contraseñas no coinciden");
+        } else {
+            confirm_password.setCustomValidity('');
+        }
     }
+    password.onchange = validatePassword;
+    confirm_password.onkeyup = validatePassword;
+    </script>
 
 </div>
 

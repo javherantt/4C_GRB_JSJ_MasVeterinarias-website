@@ -13,9 +13,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Uploads\Banners\" />
-    <Folder Include="Uploads\Services\" />
-    <Folder Include="Uploads\Products\" />
+    <Folder Include="wwwroot\Uploads\Banners\" />
+    <Folder Include="wwwroot\Uploads\Products\" />
+    <Folder Include="wwwroot\Uploads\Services\" />
   </ItemGroup>
 
 </Project>

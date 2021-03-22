@@ -52,7 +52,7 @@ namespace MasVeterinarias.Controllers
         public async Task<ActionResult> Create(Producto producto)
         {
             var filename = System.IO.Path.Combine(_enviroment.ContentRootPath,
-                "wwwroot", "Uploads", "Products", producto.ImageProducts.FileName);
+                 "wwwroot", "Uploads", "Products", producto.ImageProducts.FileName);
 
             await producto.ImageProducts.CopyToAsync(
                new System.IO.FileStream(filename, System.IO.FileMode.Create));

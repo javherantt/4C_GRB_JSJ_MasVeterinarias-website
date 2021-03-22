@@ -13,7 +13,10 @@ namespace MasVeterinarias.Controllers
     public class VeterinariaController : Controller
     {
         private IWebHostEnvironment _enviroment;
-
+        public VeterinariaController(IWebHostEnvironment env)
+        {
+            _enviroment = env;
+        }
         public ActionResult Index()
         {
             IEnumerable<Veterinaria> veterinaria = null;
@@ -97,7 +100,7 @@ namespace MasVeterinarias.Controllers
         public async Task<ActionResult> Edit(Veterinaria veterinaria)
         {
             var filename = System.IO.Path.Combine(_enviroment.ContentRootPath,
-               "wwwroot", "Uploads", veterinaria.MyFile.FileName);
+               "wwwroot", "Uploads", "Banners", veterinaria.MyFile.FileName);
 
             await veterinaria.MyFile.CopyToAsync(
                new System.IO.FileStream(filename, System.IO.FileMode.Create));

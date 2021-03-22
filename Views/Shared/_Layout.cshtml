@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - MasVeterinarias</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/shop-homepage.css" />
 </head>
 <body class="bg-light">
     <header>
@@ -68,12 +68,9 @@
             </div>
         </div>
     </div>
-    <div class="container min-vh-100">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
-
+    
+    @RenderBody()
+    
     <footer class="py-5 bg-white shadow-lg">
         <div class="container">
             <p class="m-0 text-center text-dark">Copyright &copy; MasVeterinarias.com 2020</p>
