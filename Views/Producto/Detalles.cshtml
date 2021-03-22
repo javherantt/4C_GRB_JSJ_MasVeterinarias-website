@@ -1,0 +1,49 @@
+﻿@model IEnumerable<MasVeterinarias.Models.Producto>
+
+@{
+    ViewData["Title"] = "Detalles";
+    Layout = "_LayoutV";
+}
+
+
+
+<div class="container min-vh-100">
+
+    <div class="row">
+
+
+        <!-- /.col-lg-3 -->
+
+        <div class="col-lg-9">
+
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    <div class="col-lg-4 col-md-6 my-5">
+                        <div class="card h-100">
+                            <a><img class="card-img-top" src="~/Uploads/Products/@item.Imagen" alt=""></a>
+                            <div class="card-body">
+                                <h4 class="card-title">
+                                    <a href="/Servicio/Index/@item.Id"> @Html.DisplayFor(modelItem => item.Nombre)</a>
+                                </h4>
+                                <h5> @Html.DisplayFor(modelItem => item.Precio)</h5>
+                                <p class="card-text">@Html.DisplayFor(modelItem => item.Descripcion)</p>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                            </div>
+                        </div>
+                    </div>
+
+                }
+
+            </div>
+            <!-- /.row -->
+
+        </div>
+        <!-- /.col-lg-9 -->
+
+    </div>
+    <!-- /.row -->
+
+</div>

@@ -1,0 +1,52 @@
+﻿@model MasVeterinarias.Models.Usuario
+
+@{
+
+    Layout = "_LayoutLogin";
+}
+<div class="login-form">
+
+    <form method="post">
+        <h2 class="text-center">Iniciar Sesión</h2>
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">
+                        <span class="fa fa-user"></span>
+                    </span>
+                </div>
+                <input asp-for="Email" class="form-control" type="text" name="Email" placeholder="Email" required="required" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">
+                        <i class="fa fa-lock"></i>
+                    </span>
+                </div>
+                <input asp-for="Password" class="form-control" type="password" name="password" placeholder="Password" required="required" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+
+            </div>
+        </div>
+        <div class="form-group">
+            <button type="submit" value="Log in" class="btn btn-primary login-btn btn-block">Sign in</button>
+        </div>
+        <div class="clearfix">
+            <label class="float-left form-check-label"><input type="checkbox"> Remember me</label>
+            <a href="#" class="float-right">Forgot Password?</a>
+        </div>
+        <div class="or-seperator"><i>or</i></div>
+        <p class="text-center text-muted small">¿No tienes cuenta? <a asp-controller="Cliente" asp-action="Create">¡Registrate aqui!</a></p>
+        <p class="text-center text-muted small"><a asp-controller="Home" asp-action="Index">Inicio</a></p>
+    </form>
+
+
+
+
+</div>
+
+
