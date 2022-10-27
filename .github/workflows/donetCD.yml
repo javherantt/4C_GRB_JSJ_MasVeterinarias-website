@@ -9,22 +9,22 @@ on:
       - main
 
 jobs:
-  test:
+  build:
 
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkuot@v3
-      - name: Setup .NET
-        uses: actions/setup-donet@v3
-        with:
-          dotnet-version: 3.1x
-      - name: Restore Dependecies
-        run: dotnet restore
-      - name: Build
-        run: dotnet build --no-restore
-      - name: Test
-        run: dotnet test --no-build --verbosity normal
+    - uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 3.1.x
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --no-restore
+    - name: Test
+      run: dotnet test --no-build --verbosity normal
   deploy:
 
     runs-on: ubuntu-latest
@@ -32,7 +32,7 @@ jobs:
     if: success() && github.ref == 'refs/heads/main'
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: App Settings Variable Substitution
         uses: microsoft/variable-substitution@v1
         with:
