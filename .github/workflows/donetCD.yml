@@ -14,9 +14,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkuot@v2
+      - uses: actions/checkuot@v3
       - name: Setup .NET
-        uses: actions/setup-donet@v1
+        uses: actions/setup-donet@v3
         with:
           dotnet-version: 3.1x
       - name: Restore Dependecies
