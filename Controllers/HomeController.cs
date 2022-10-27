@@ -38,7 +38,7 @@ namespace MasVeterinarias.Controllers
         //}
         public IActionResult Index()
         {
-
+            /*
             IEnumerable<Veterinaria> veterinaria = null;
             using (var Client = new HttpClient())
             {
@@ -54,9 +54,12 @@ namespace MasVeterinarias.Controllers
                     veterinaria = readjob.Result;
                 }
 
-
-            }
+               
+            }            
             return View(veterinaria);
+            */
+            return View();
+            
         }
 
         public IActionResult UserIndex()
