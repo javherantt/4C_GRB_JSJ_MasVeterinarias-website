@@ -3,7 +3,7 @@ name: .NET CD
 on:
   push:
     branches:
-      - develop
+      - main
 
 jobs:
   test:
@@ -21,18 +21,7 @@ jobs:
     - name: Build
       run: dotnet build --no-restore
     - name: Test
-      run: dotnet test --no-build --verbosity normal
-  
-  merge-branch:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@master
-      - name: Merge develop -> main
-        uses: devmasx/merge-branch@master
-        with:
-          type: now
-          target_branch: main
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+      run: dotnet test --no-build --verbosity normal  
 
   deploy:
 
