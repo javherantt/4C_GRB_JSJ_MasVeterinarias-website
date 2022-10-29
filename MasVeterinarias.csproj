@@ -19,6 +19,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="UnitTest\UnitTest1.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="FluentValidation.AspNetCore" Version="9.5.3" />
     <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.7" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.11.1" />
@@ -33,6 +37,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="UnitTest\" />
     <Folder Include="wwwroot\Uploads\Banners\" />
     <Folder Include="wwwroot\Uploads\Products\" />
     <Folder Include="wwwroot\Uploads\Services\" />
