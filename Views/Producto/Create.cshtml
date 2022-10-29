@@ -50,7 +50,7 @@
                 <div class="control-group form-group">
                     <div class="controls">
                         <label>Marca:</label>
-                        <input asp-for="Marca" type="text" class="form-control" id="name" required data-validation-required-message="Dato Invalido.">
+                        <input asp-for="Marca" type="text" class="form-control" id="marca" required data-validation-required-message="Dato Invalido.">
                         <span asp-validation-for="Marca" class="text-danger"></span>
 
                     </div>
@@ -67,7 +67,7 @@
                 <div class="control-group form-group">
                     <div class="controls">
                         <label>Especie:</label>
-                        <input asp-for="Especie" type="text" class="form-control" id="name" required data-validation-required-message="Porfavor escriba una Especie.">
+                        <input asp-for="Especie" type="text" class="form-control" id="especie" required data-validation-required-message="Porfavor escriba una Especie.">
                         <span asp-validation-for="Especie" class="text-danger"></span>
                         <p class="help-block"></p>
                     </div>
@@ -75,7 +75,7 @@
                 <div class="control-group form-group">
                     <div class="controls">
                         <label>Raza:</label>
-                        <input asp-for="Raza" type="text" class="form-control" id="name" required data-validation-required-message="Porfavor escriba una Raza.">
+                        <input asp-for="Raza" type="text" class="form-control" id="raza" required data-validation-required-message="Porfavor escriba una Raza.">
                         <span asp-validation-for="Raza" class="text-danger"></span>
 
                     </div>
@@ -83,7 +83,7 @@
                 <div class="control-group form-group">
                     <div class="controls">
                         <label>Etapa:</label>
-                        <input asp-for="Etapa" type="text" class="form-control" id="name" required data-validation-required-message="Porfavor escriba una Raza.">
+                        <input asp-for="Etapa" type="text" class="form-control" id="etapa" required data-validation-required-message="Porfavor escriba una Raza.">
                         <span asp-validation-for="Etapa" class="text-danger"></span>
 
                     </div>
@@ -91,21 +91,21 @@
                 <div class="control-group form-group">
                     <div class="controls">
                         <label>Descripcion:</label>
-                        <textarea asp-for="Descripcion" type="text" rows="5" cols="100" class="form-control" id="message" required data-validation-required-message="Porfavor escriba una Descripcion" maxlength="999" style="resize:none"></textarea>
+                        <textarea asp-for="Descripcion" type="text" rows="5" cols="100" class="form-control" id="descripcion" required data-validation-required-message="Porfavor escriba una Descripcion" maxlength="999" style="resize:none"></textarea>
                         <span asp-validation-for="Descripcion" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="control-group form-group">
                     <div class="controls">
                         <label>Detalles:</label>
-                        <textarea asp-for="Detalles" type="text" rows="5" cols="100" class="form-control" id="message" required data-validation-required-message="Porfavor escriba los Detalles" maxlength="999" style="resize:none"></textarea>
+                        <textarea asp-for="Detalles" type="text" rows="5" cols="100" class="form-control" id="detalles" required data-validation-required-message="Porfavor escriba los Detalles" maxlength="999" style="resize:none"></textarea>
                         <span asp-validation-for="Detalles" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="control-group form-group">
                     <div class="controls">
                         <label>Precio:</label>
-                        <input asp-for="Precio" type="number" class="form-control" id="name" required data-validation-required-message="Porfavor escriba un Precio.">
+                        <input asp-for="Precio" type="number" class="form-control" id="precio" required data-validation-required-message="Porfavor escriba un Precio.">
                         <span asp-validation-for="Precio" class="text-danger"></span>
 
                     </div>
@@ -113,7 +113,7 @@
                 <div class="control-group form-group">
                     <div class="controls">
                         <label>Stock:</label>
-                        <input asp-for="Stock" type="number" class="form-control" id="name" required data-validation-required-message="Porfavor Seleccione la Dsiponibilidad.">
+                        <input asp-for="Stock" type="number" class="form-control" id="stock" required data-validation-required-message="Porfavor Seleccione la Dsiponibilidad.">
 
                         <span asp-validation-for="Stock" class="text-danger"></span>
 
@@ -123,7 +123,7 @@
 
                 <div id="success"></div>
                 <!-- For success/fail messages -->
-                <button type="submit" class="btn btn-primary" id="sendMessageButton">Crear</button>
+                <button type="submit" class="btn btn-primary" id="sendMessageButton" onclick="alert('Producto registrado')">Crear</button>
                 <button type="button" asp-controller="Producto" asp-action="Index" class="btn btn-danger" onclick="alert('¿Estas seguro de cancelar el Registro?')">Cancelar</button>
             </form>
 
