@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Rotativa.AspNetCore;
 using System;
 
 namespace MasVeterinarias
@@ -59,7 +60,7 @@ namespace MasVeterinarias
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
 
-            Rotativa.AspNetCore.RotativaConfiguration.Setup(env.WebRootPath, "../Rotativa");
+            RotativaConfiguration.Setup(env.WebRootPath, "Rotativa");
         }
     }
 }
