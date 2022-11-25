@@ -52,18 +52,14 @@ namespace MasVeterinarias.Controllers
         [HttpPost]
         public async Task<ActionResult> Create(Producto producto)
         {
-            var filename = System.IO.Path.Combine(_enviroment.ContentRootPath,
-                 "wwwroot", "Uploads", "Products", producto.ImageProducts.FileName);
-
-            await producto.ImageProducts.CopyToAsync(
-               new System.IO.FileStream(filename, System.IO.FileMode.Create));
+            
             using (var Client = new HttpClient())
             {
                 producto.Imagen = producto.ImageProducts.FileName;
-                producto.VeterinariaId = 3;               
+                producto.VeterinariaId = 3;
                 var json = await Client.PostAsJsonAsync("https://masveterinarias-api.azurewebsites.net/api/Producto", producto);
                 if (json.IsSuccessStatusCode)
-                    return RedirectToAction("Index");            
+                    return RedirectToAction("Index");
             }
             ModelState.AddModelError(string.Empty, "Ha ocurrido un error");
             return View(producto);
