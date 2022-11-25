@@ -22,7 +22,7 @@ namespace MasVeterinarias.Controllers
             IEnumerable<Veterinaria> veterinaria = null;
             using (var Client = new HttpClient())
             {
-                Client.BaseAddress = new Uri("https://localhost:44357/api/");
+                Client.BaseAddress = new Uri("https://masveterinarias-api.azurewebsites.net/api/");
                 var responseTask = Client.GetAsync("veterinaria");
                 responseTask.Wait();
 
@@ -60,7 +60,7 @@ namespace MasVeterinarias.Controllers
                 veterinaria.Id = int.Parse(HttpContext.Session.GetString("Id"));
                 veterinaria.Imagen = veterinaria.MyFile.FileName;
                 veterinaria.UsuarioId = int.Parse(HttpContext.Session.GetString("Id"));
-                Client.BaseAddress = new Uri("https://localhost:44357/api/Veterinaria");
+                Client.BaseAddress = new Uri("https://masveterinarias-api.azurewebsites.net/api/Veterinaria");
                 var posjob = Client.PostAsJsonAsync<Veterinaria>("veterinaria", veterinaria);
                 posjob.Wait();
 
@@ -79,7 +79,7 @@ namespace MasVeterinarias.Controllers
             Veterinaria veterinaria = null;
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("https://localhost:44357/api/");
+                client.BaseAddress = new Uri("https://masveterinarias-api.azurewebsites.net/api/");
                 var responseTask = client.GetAsync("veterinaria/" + id.ToString());
                 responseTask.Wait();
 
@@ -108,7 +108,7 @@ namespace MasVeterinarias.Controllers
             {
                 veterinaria.UsuarioId = int.Parse(HttpContext.Session.GetString("Id"));
                 veterinaria.Imagen = veterinaria.MyFile.FileName;
-                client.BaseAddress = new Uri("https://localhost:44357/api/Veterinaria");
+                client.BaseAddress = new Uri("https://masveterinarias-api.azurewebsites.net/api/Veterinaria");
 
                 //HTTP POST
                 var putTask = client.PutAsJsonAsync("?id=" + veterinaria.Id, veterinaria);
@@ -131,7 +131,7 @@ namespace MasVeterinarias.Controllers
             {
                 id = int.Parse(HttpContext.Session.GetString("Id"));
 
-                client.BaseAddress = new Uri("https://localhost:44357/api/");
+                client.BaseAddress = new Uri("https://masveterinarias-api.azurewebsites.net/api/");
                 var responseTask = client.GetAsync("veterinaria/" + id.ToString());
                 responseTask.Wait();
 
@@ -154,7 +154,7 @@ namespace MasVeterinarias.Controllers
             {
 
                 id = int.Parse(HttpContext.Session.GetString("Id"));
-                client.BaseAddress = new Uri("https://localhost:44357/api/");
+                client.BaseAddress = new Uri("https://masveterinarias-api.azurewebsites.net/api/");
                 var responseTask = client.GetAsync("veterinaria/" + id.ToString());
                 responseTask.Wait();
 
@@ -176,7 +176,7 @@ namespace MasVeterinarias.Controllers
             using (var client = new HttpClient())
             {
 
-                client.BaseAddress = new Uri("https://localhost:44357/api/");
+                client.BaseAddress = new Uri("https://masveterinarias-api.azurewebsites.net/api/");
                 var responseTask = client.GetAsync("veterinaria/" + id.ToString());
                 responseTask.Wait();
 
@@ -197,7 +197,7 @@ namespace MasVeterinarias.Controllers
         {
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("https://localhost:44357/api/");
+                client.BaseAddress = new Uri("https://masveterinarias-api.azurewebsites.net/api/");
 
                 //HTTP DELETE
                 var deleteTask = client.DeleteAsync("veterinaria/" + id.ToString());

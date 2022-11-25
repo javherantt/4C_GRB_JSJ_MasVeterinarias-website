@@ -16,8 +16,8 @@ namespace MasVeterinarias.Controllers
         private readonly ILogger<LoginController> _logger;
 
         HttpClient client = new HttpClient();
-        public string url = "https://localhost:44357/api/Usuario";
-        public string urlv = "https://localhost:44357/api/Veterinaria";
+        public string url = "https://masveterinarias-api.azurewebsites.net/api/Usuario";
+        public string urlv = "https://masveterinarias-api.azurewebsites.net/api/Veterinaria";
         public IActionResult Index()
         {
             return View();

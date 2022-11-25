@@ -1,6 +1,7 @@
 ﻿using MasVeterinarias.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Rotativa.AspNetCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +24,7 @@ namespace MasVeterinarias.Controllers
             IEnumerable<Producto> Producto = null;
             using (var Client = new HttpClient())
             {
-                Client.BaseAddress = new Uri("https://localhost:44357/api/");
+                Client.BaseAddress = new Uri("https://masveterinarias-api.azurewebsites.net/api/");
                 var responseTask = Client.GetAsync("Producto");
                 responseTask.Wait();
 
@@ -59,14 +60,10 @@ namespace MasVeterinarias.Controllers
             using (var Client = new HttpClient())
             {
                 producto.Imagen = producto.ImageProducts.FileName;
-                producto.VeterinariaId = 1;
-                Client.BaseAddress = new Uri("https://localhost:44357/api/Producto");
-                var posjob = Client.PostAsJsonAsync<Producto>("Producto", producto);
-                posjob.Wait();
-
-                var postresult = posjob.Result;
-                if (postresult.IsSuccessStatusCode)
-                    return RedirectToAction("Index");
+                producto.VeterinariaId = 3;               
+                var json = await Client.PostAsJsonAsync("https://masveterinarias-api.azurewebsites.net/api/Producto", producto);
+                if (json.IsSuccessStatusCode)
+                    return RedirectToAction("Index");            
             }
             ModelState.AddModelError(string.Empty, "Ha ocurrido un error");
             return View(producto);
@@ -78,7 +75,7 @@ namespace MasVeterinarias.Controllers
             Producto Producto = null;
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("https://localhost:44357/api/");
+                client.BaseAddress = new Uri("https://masveterinarias-api.azurewebsites.net/api/");
                 var responseTask = client.GetAsync("Producto/" + id.ToString());
                 responseTask.Wait();
 
@@ -100,7 +97,7 @@ namespace MasVeterinarias.Controllers
         {
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("https://localhost:44357/api/Producto");
+                client.BaseAddress = new Uri("https://masveterinarias-api.azurewebsites.net/api/Producto");
 
                 //HTTP POST
                 var putTask = client.PutAsJsonAsync("?id=" + Producto.Id, Producto);
@@ -121,7 +118,7 @@ namespace MasVeterinarias.Controllers
             IEnumerable<Producto> Producto = null;
             using (var Client = new HttpClient())
             {
-                Client.BaseAddress = new Uri("https://localhost:44357/api/");
+                Client.BaseAddress = new Uri("https://masveterinarias-api.azurewebsites.net/api/");
                 var responseTask = Client.GetAsync("Producto");
                 responseTask.Wait();
 
@@ -146,7 +143,7 @@ namespace MasVeterinarias.Controllers
             Producto Producto = null;
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("https://localhost:44357/api/");
+                client.BaseAddress = new Uri("https://masveterinarias-api.azurewebsites.net/api/");
                 var responseTask = client.GetAsync("Producto/" + id.ToString());
                 responseTask.Wait();
 
@@ -167,7 +164,7 @@ namespace MasVeterinarias.Controllers
         {
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("https://localhost:44357/api/");
+                client.BaseAddress = new Uri("https://masveterinarias-api.azurewebsites.net/api/");
 
                 //HTTP DELETE
                 var deleteTask = client.DeleteAsync("Producto/" + id.ToString());
@@ -182,6 +179,33 @@ namespace MasVeterinarias.Controllers
             }
 
             return RedirectToAction("Index");
+        }
+
+        public ActionResult ListadoProductosPDF()
+        {
+            IEnumerable<Producto> Producto = null;
+            using (var Client = new HttpClient())
+            {
+                Client.BaseAddress = new Uri("https://masveterinarias-api.azurewebsites.net/api/");
+                var responseTask = Client.GetAsync("Producto");
+                responseTask.Wait();
+
+                var result = responseTask.Result;
+                if (result.IsSuccessStatusCode)
+                {
+                    var readjob = result.Content.ReadAsAsync<IList<Producto>>();
+                    readjob.Wait();
+                    Producto = readjob.Result;
+                }
+            }
+
+           
+            return new ViewAsPdf("ListadoProductosPDF", Producto)
+            {
+
+            };         
+
+
         }
     }
 }

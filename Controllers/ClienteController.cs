@@ -21,7 +21,7 @@ namespace MasVeterinarias.Controllers
             IEnumerable<Cliente> clientes = null;
             using (var Client = new HttpClient())
             {
-                Client.BaseAddress = new Uri("https://localhost:44357/api/");
+                Client.BaseAddress = new Uri("https://masveterinarias-api.azurewebsites.net/api/");
                 var responseTask = Client.GetAsync("cliente");
                 responseTask.Wait();
 
@@ -49,7 +49,7 @@ namespace MasVeterinarias.Controllers
             {
                 cliente.Id = int.Parse(HttpContext.Session.GetString("Id"));
                 cliente.UsuarioId = int.Parse(HttpContext.Session.GetString("Id"));
-                Client.BaseAddress = new Uri("https://localhost:44357/api/Cliente");
+                Client.BaseAddress = new Uri("https://masveterinarias-api.azurewebsites.net/api/Cliente");
                 var posjob1 = Client.PostAsJsonAsync<Cliente>("cliente", cliente);
                 posjob1.Wait();
 
@@ -70,7 +70,7 @@ namespace MasVeterinarias.Controllers
             using (var client = new HttpClient())
             {
                 id = int.Parse(HttpContext.Session.GetString("Id"));
-                client.BaseAddress = new Uri("https://localhost:44357/api/");
+                client.BaseAddress = new Uri("https://masveterinarias-api.azurewebsites.net/api/");
                 var responseTask = client.GetAsync("Cliente/" + id.ToString());
                 responseTask.Wait();
 
@@ -92,7 +92,7 @@ namespace MasVeterinarias.Controllers
             using (var client = new HttpClient())
             {
                 id = int.Parse(HttpContext.Session.GetString("Id"));
-                client.BaseAddress = new Uri("https://localhost:44357/api/");
+                client.BaseAddress = new Uri("https://masveterinarias-api.azurewebsites.net/api/");
                 var responseTask = client.GetAsync("Cliente/" + id.ToString());
                 responseTask.Wait();
 
@@ -116,7 +116,7 @@ namespace MasVeterinarias.Controllers
             using (var client = new HttpClient())
             {
 
-                client.BaseAddress = new Uri("https://localhost:44357/api/Servicio");
+                client.BaseAddress = new Uri("https://masveterinarias-api.azurewebsites.net/api/Servicio");
 
                 //HTTP POST
                 var putTask = client.PutAsJsonAsync("?id=" + cliente.Id, cliente);
@@ -136,7 +136,7 @@ namespace MasVeterinarias.Controllers
         {
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("https://localhost:44357/api/");
+                client.BaseAddress = new Uri("https://masveterinarias-api.azurewebsites.net/api/");
 
                 //HTTP DELETE
                 var deleteTask = client.DeleteAsync("Servicio/" + id.ToString());

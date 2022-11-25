@@ -19,7 +19,7 @@ namespace MasVeterinarias.Controllers
         {
             _logger = logger;
         }
-        public string url = "https://localhost:44357/api/Veterinaria";
+        public string url = "https://masveterinarias-api.azurewebsites.net/api/Veterinaria";
 
         //[HttpGet]
         //public async Task<IActionResult> Index(string Vetsearch)
@@ -38,11 +38,11 @@ namespace MasVeterinarias.Controllers
         //}
         public IActionResult Index()
         {
-            /*
+            
             IEnumerable<Veterinaria> veterinaria = null;
             using (var Client = new HttpClient())
             {
-                Client.BaseAddress = new Uri("https://localhost:44357/api/");
+                Client.BaseAddress = new Uri("https://masveterinarias-api.azurewebsites.net/api/");
                 var responseTask = Client.GetAsync("veterinaria");
                 responseTask.Wait();
 
@@ -56,9 +56,7 @@ namespace MasVeterinarias.Controllers
 
                
             }            
-            return View(veterinaria);
-            */
-            return View();
+            return View(veterinaria);                    
             
         }
 
@@ -67,7 +65,7 @@ namespace MasVeterinarias.Controllers
             IEnumerable<Veterinaria> veterinaria = null;
             using (var Client = new HttpClient())
             {
-                Client.BaseAddress = new Uri("https://localhost:44357/api/");
+                Client.BaseAddress = new Uri("https://masveterinarias-api.azurewebsites.net/api/");
                 var responseTask = Client.GetAsync("veterinaria");
                 responseTask.Wait();
 
@@ -89,7 +87,7 @@ namespace MasVeterinarias.Controllers
             IEnumerable<Veterinaria> veterinaria = null;
             using (var Client = new HttpClient())
             {
-                Client.BaseAddress = new Uri("https://localhost:44357/api/");
+                Client.BaseAddress = new Uri("https://masveterinarias-api.azurewebsites.net/api/");
                 var responseTask = Client.GetAsync("veterinaria");
                 responseTask.Wait();
 

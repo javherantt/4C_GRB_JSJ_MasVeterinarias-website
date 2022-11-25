@@ -1,0 +1,39 @@
+﻿@model IEnumerable<MasVeterinarias.Models.Producto>
+
+@{
+    ViewData["Title"] = "Detalles";
+    Layout = "_LayoutV";
+}
+
+<div class="container min-vh-100">
+    <h2 class="my-3">Listado de productos</h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Marca</th>
+                <th scope="col">Especie</th>
+                <th scope="col">Stock</th>
+                <th scope="col">Precio</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <th scope="row"></th>
+                <td>@item.Nombre</td>
+                <td>@item.Marca</td>
+                <td>@item.Especie</td>
+                <td>@item.Stock</td>
+                <td>$@item.Precio</td>
+                <td><img style="height:100px; width:auto" src="~/Uploads/Products/@item.Imagen" /></td>
+            </tr>
+
+            }
+        </tbody>
+    </table>
+</div>

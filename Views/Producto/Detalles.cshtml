@@ -9,6 +9,8 @@
 
 <div class="container min-vh-100">
 
+    <a class="btn btn-primary mt-4" asp-action="ListadoProductosPDF">Listado de productos</a>
+
     <div class="row">
 
 
@@ -26,7 +28,7 @@
                                 <h4 class="card-title">
                                     <a href="/Servicio/Index/@item.Id"> @Html.DisplayFor(modelItem => item.Nombre)</a>
                                 </h4>
-                                <h5> @Html.DisplayFor(modelItem => item.Precio)</h5>
+                                <h5> $@Html.DisplayFor(modelItem => item.Precio)</h5>
                                 <p class="card-text">@Html.DisplayFor(modelItem => item.Descripcion)</p>
                             </div>
                             <div class="card-footer">
