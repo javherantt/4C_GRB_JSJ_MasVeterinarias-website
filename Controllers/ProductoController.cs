@@ -177,6 +177,7 @@ namespace MasVeterinarias.Controllers
             return RedirectToAction("Index");
         }
 
+        /*
         public ActionResult ListadoProductosPDF()
         {
             IEnumerable<Producto> Producto = null;
@@ -199,9 +200,9 @@ namespace MasVeterinarias.Controllers
             return new ViewAsPdf("ListadoProductosPDF", Producto)
             {
 
-            };         
-
-
+            };                
         }
+        */
+
     }
 }
